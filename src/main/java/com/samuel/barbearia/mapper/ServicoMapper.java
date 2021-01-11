@@ -5,9 +5,9 @@ import com.samuel.barbearia.requests.ServicoPostRequestBody;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
-public interface ServicoMapper {
+@Mapper(componentModel = "spring")
+public abstract class ServicoMapper {
 
-    ServicoMapper  INSTANCE = Mappers.getMapper( ServicoMapper .class );
-    Servico toServico(ServicoPostRequestBody servicoPostRequestBody);
+    public static final ServicoMapper  INSTANCE = Mappers.getMapper( ServicoMapper .class );
+    public abstract  Servico toServico(ServicoPostRequestBody servicoPostRequestBody);
 }
