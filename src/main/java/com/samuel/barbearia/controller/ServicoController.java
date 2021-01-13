@@ -23,6 +23,11 @@ public class ServicoController {
         return new ResponseEntity<>(servicoService.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping(path = "/find")
+    private ResponseEntity<List<Servico>> findAllByDescricao (@RequestParam String descricao){
+        return new ResponseEntity<>(servicoService.findAllByDescricao(descricao), HttpStatus.OK);
+    }
+
     @GetMapping(path = "/{id}")
     private ResponseEntity<Servico> findAl (@PathVariable  long id){
         return new ResponseEntity<>(servicoService.findById(id), HttpStatus.OK);

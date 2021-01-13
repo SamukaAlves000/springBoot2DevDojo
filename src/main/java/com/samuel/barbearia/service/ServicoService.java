@@ -22,6 +22,10 @@ public class ServicoService {
         return servicoRepository.findAll();
     }
 
+    public List<Servico> findAllByDescricao (String descricao){
+        return servicoRepository.findAllByDescricao(descricao);
+    }
+
     public Servico findById (Long id){
         return servicoRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST,"Anime not found"));
     }
