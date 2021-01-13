@@ -1,6 +1,7 @@
 package com.samuel.barbearia.service;
 
 import com.samuel.barbearia.domain.Servico;
+import com.samuel.barbearia.exception.BadRequestException;
 import com.samuel.barbearia.mapper.ServicoMapper;
 import com.samuel.barbearia.repository.ServicoRepository;
 import com.samuel.barbearia.requests.ServicoPostRequestBody;
@@ -27,7 +28,7 @@ public class ServicoService {
     }
 
     public Servico findById (Long id){
-        return servicoRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST,"Anime not found"));
+        return servicoRepository.findById(id).orElseThrow(() -> new BadRequestException("Anime not found"));
     }
 
     public Servico save (ServicoPostRequestBody servicoPostRequestBody){
